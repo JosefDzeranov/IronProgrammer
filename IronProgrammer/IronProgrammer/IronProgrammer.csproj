@@ -195,6 +195,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EF\Attribute.cs" />
+    <Compile Include="Models\EF\City.cs" />
+    <Compile Include="Models\EF\CodeLine.cs" />
+    <Compile Include="Models\EF\Complexity.cs" />
+    <Compile Include="Models\EF\Country.cs" />
+    <Compile Include="Models\EF\Institution.cs" />
+    <Compile Include="Models\EF\OriginalTask.cs" />
+    <Compile Include="Models\EF\ProgrammingLanguage.cs" />
+    <Compile Include="Models\EF\TaskAttribute.cs" />
+    <Compile Include="Models\EF\TaskContext.cs" />
+    <Compile Include="Models\EF\Topic.cs" />
+    <Compile Include="Models\EF\TypeTask.cs" />
+    <Compile Include="Models\EF\UserCategory.cs" />
+    <Compile Include="Models\EF\UserProfile.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
