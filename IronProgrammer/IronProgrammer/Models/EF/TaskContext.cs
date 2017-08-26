@@ -8,7 +8,7 @@ namespace IronProgrammer.Models.EF
 {
     public class TaskContext : DbContext
     {
-        public TaskContext() : base("Tasks") { }
+        public TaskContext() : base("IronProgrammer") { }
         public DbSet<Attribute> Attributes { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Complexity> Complexities { get; set; }
