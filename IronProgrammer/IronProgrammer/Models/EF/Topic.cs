@@ -10,10 +10,10 @@ namespace IronProgrammer.Models.EF
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<OriginalTask> OriginalTasks { get; set; }
+        public virtual ICollection<Problem> OriginalTasks { get; set; }
         public Topic()
         {
-            OriginalTasks = new List<OriginalTask>();
+            OriginalTasks = new List<Problem>();
         }
     }
 }

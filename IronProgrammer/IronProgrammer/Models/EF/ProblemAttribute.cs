@@ -5,11 +5,16 @@ using System.Web;
 
 namespace IronProgrammer.Models.EF
 {
-    public class TaskAttribute
+
+    public enum Attributes
+    {
+        ChoiceOneAnswer
+    }
+    public class ProblemAttribute
     {
         public int Id { get; set; }
-        public virtual OriginalTask Task { get; set; }
-        public virtual Attribute Attribute { get; set; }
+        public virtual Problem Task { get; set; }
+        public Attributes Attribute { get; set; }
         public string Value { get; set; }
     }
 

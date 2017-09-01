@@ -9,6 +9,6 @@ namespace IronProgrammer.Models.EF
     {
         public int Id { get; set; }
         public string Content { get; set; }
-        public virtual OriginalTask Task { get; set; }
+        public virtual Problem Task { get; set; }
     }
 }

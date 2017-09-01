@@ -14,7 +14,7 @@ namespace IronProgrammer
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<TaskContext>(new AppDbInitializer());
+            Database.SetInitializer<ProblemContext>(new AppDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

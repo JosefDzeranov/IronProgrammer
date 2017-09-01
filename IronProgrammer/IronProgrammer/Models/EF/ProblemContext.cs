@@ -6,24 +6,23 @@ using System.Web;
 
 namespace IronProgrammer.Models.EF
 {
-    public class TaskContext : DbContext
+    public class ProblemContext : DbContext
     {
-        public TaskContext() : base("IronProgrammer") { }
+        public ProblemContext() : base("IronProgrammer") { }
         public DbSet<Attribute> Attributes { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Complexity> Complexities { get; set; }
         public DbSet<Country> Сountries { get; set; }
         public DbSet<Institution> Institutions { get; set; }
-        public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
-        public DbSet<OriginalTask> OriginalTasks { get; set; }
+        public DbSet<Problem> OriginalTasks { get; set; }
         public DbSet<Topic> Topics { get; set; }
-        public DbSet<TypeTask> TypeTasks { get; set; }
+        public DbSet<TypeProblem> TypeTasks { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<UserCategory> UserCategories { get; set; }
     }
-    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<TaskContext>
+    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<ProblemContext>
     {
-        protected override void Seed(TaskContext context)
+        protected override void Seed(ProblemContext context)
         {
 
             Models.EF.Attribute a = new Attribute();
@@ -58,11 +57,11 @@ namespace IronProgrammer.Models.EF
             context.Topics.Add(tmp);
             context.SaveChanges();
 
-            Models.EF.OriginalTask t = new OriginalTask();
+            Models.EF.Problem t = new Problem();
             t.Topics.Add(tmp);
             foreach (var i in context.Attributes)
             {
-                TaskAttribute task = new TaskAttribute();
+                ProblemAttribute task = new ProblemAttribute();
                 task.Value = "asdklasldja;dsad";
                 task.Attribute = i;
                 t.TaskAttributes.Add(task);
@@ -79,7 +78,7 @@ namespace IronProgrammer.Models.EF
             {
                 var codeline = new CodeLine();
                 codeline.Content = item;
-                t.Codelines.Add(codeline);
+                //t.Codelines.Add(codeline);
             }
             context.OriginalTasks.Add(t);
             context.SaveChanges();
