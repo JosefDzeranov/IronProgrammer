@@ -15,6 +15,13 @@ namespace IronProgrammer.Controllers
             return View();
         }
 
+        public ViewResult Problems()
+        {
+            return View();
+        }
+
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -23,6 +30,9 @@ namespace IronProgrammer.Controllers
             var a = res[0];
             return View();
         }
+
+
+
 
         public ActionResult Contact()
         {
