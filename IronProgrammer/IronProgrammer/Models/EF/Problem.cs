@@ -10,7 +10,8 @@ namespace IronProgrammer.Models.EF
     enum EnumTypeProblems
     {
         OneAnswer,
-        MoreAnswer
+        MoreAnswer,
+        Blackbox
     }
     public class Problem
     {
