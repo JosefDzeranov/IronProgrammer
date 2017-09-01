@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace IronProgrammer.Models.EF
 {
+
+    enum EnumTypeProblems
+    {
+        OneAnswer,
+        MoreAnswer
+    }
     public class Problem
     {
+        [System.ComponentModel.DataAnnotations.Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
 

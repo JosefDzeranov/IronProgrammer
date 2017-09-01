@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IronProgrammer.Models.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace IronProgrammer.Controllers
 {
     public class HomeController : Controller
     {
+        ProblemContext context = new ProblemContext();
         public ActionResult Index()
         {
             return View();
@@ -17,6 +19,8 @@ namespace IronProgrammer.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
+            var res = context.TypeProblems.ToList();
+            var a = res[0];
             return View();
         }
 

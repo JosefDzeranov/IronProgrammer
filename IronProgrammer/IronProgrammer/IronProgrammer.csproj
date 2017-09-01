@@ -203,7 +203,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EF\CodeLine.cs" />
     <Compile Include="Models\EF\Complexity.cs" />
-    <Compile Include="Models\EF\Country.cs" />
     <Compile Include="Models\EF\Problem.cs" />
     <Compile Include="Models\EF\ProblemAttribute.cs" />
     <Compile Include="Models\EF\ProblemContext.cs" />
