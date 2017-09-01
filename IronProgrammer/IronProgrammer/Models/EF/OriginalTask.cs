@@ -9,7 +9,6 @@ namespace IronProgrammer.Models.EF
     {
         public int Id { get; set; }
 
-        public virtual ICollection<CodeLine> Codelines { get; set; }
         public virtual ICollection<Topic> Topics { get; set; }
 
         public virtual ICollection<TaskAttribute> TaskAttributes { get; set; }
@@ -19,7 +18,7 @@ namespace IronProgrammer.Models.EF
         {
             Topics = new List<Topic>();
             TaskAttributes = new List<TaskAttribute>();
-            Codelines = new List<CodeLine>();
+            
         }
     }
 }
