@@ -215,8 +215,9 @@
     <Compile Include="Models\GenericTests\CharacterGenerator.cs" />
     <Compile Include="Models\GenericTests\NumberGenerator.cs" />
     <Compile Include="Models\GenericTests\IRandomGenerator.cs" />
+    <Compile Include="Models\GenericTests\OneNumberAndMoreObjectsOnEchLine.cs" />
     <Compile Include="Models\GenericTests\OneObjectGenerate.cs" />
-    <Compile Include="Models\GenericTests\OneObjectInLineAndMoreObjectsInSecondLine.cs" />
+    <Compile Include="Models\GenericTests\OneNumberInLineAndMoreObjectsInSecondLine.cs" />
     <Compile Include="Models\GenericTests\TwoObjectOnLine.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

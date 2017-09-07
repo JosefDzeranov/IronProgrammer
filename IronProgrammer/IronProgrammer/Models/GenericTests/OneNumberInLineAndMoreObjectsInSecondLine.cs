@@ -6,13 +6,13 @@ using System.Web;
 
 namespace IronProgrammer.Models.GenericTests
 {
-    public class OneObjectInLineAndMoreObjectsInSecondLine<TSecondLine>
+    public class OneNumberInLineAndMoreObjectsInSecondLine<TSecondLine>
     {
         private IRandomGenerator<Int32> _firstLineGenerator;
         private IRandomGenerator<TSecondLine> _secondLineGenerator;
 
 
-        public OneObjectInLineAndMoreObjectsInSecondLine(IRandomGenerator<Int32> firstGenerator,
+        public OneNumberInLineAndMoreObjectsInSecondLine(IRandomGenerator<Int32> firstGenerator,
                                                             IRandomGenerator<TSecondLine> secondGenerator)
         {
             _firstLineGenerator = firstGenerator;
