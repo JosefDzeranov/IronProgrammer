@@ -14,9 +14,9 @@ namespace IronProgrammer.Models.GenericTests
             _generator = generator;
         }
 
-        public string GetTest(T from, T to)
+        public string GetTest()
         {
-            return _generator.Generate(from, to).ToString();
+            return _generator.Generate().ToString();
         }
     }
 }

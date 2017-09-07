@@ -13,10 +13,10 @@ namespace IronProgrammer.Models.GenericTests
         {
             _generator = generator;
         }
-        public string GetTest(T fromObect1, T toObject1, T fromObect2, T toObject2)
+        public string GetTest()
         {
-            return _generator.Generate(fromObect1, toObject1).ToString() + " " +
-                _generator.Generate(fromObect2, toObject2).ToString();
+            return _generator.Generate() + " " +
+                _generator.Generate().ToString();
         }
     }
 }

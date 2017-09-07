@@ -9,6 +9,6 @@ namespace IronProgrammer.Models.GenericTests
     // 
     public interface IRandomGenerator<T>
     {
-        T Generate(T from, T to);
+        T Generate();
     }
 }
