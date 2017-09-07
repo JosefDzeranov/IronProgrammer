@@ -7,10 +7,10 @@ namespace IronProgrammer.Models.GenericTests
 {
     public class CharacterGenerator : IRandomGenerator<Char>
     {
-        public char Generate(char start, char end)
+        public char Generate(char from, char to)
         {
             Random random = new Random();
-            return Convert.ToChar(random.Next(start, end + 1));
+            return Convert.ToChar(random.Next(from, to + 1));
         }
     }
 }

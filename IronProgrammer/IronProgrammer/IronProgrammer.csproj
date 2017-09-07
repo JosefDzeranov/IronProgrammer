@@ -212,6 +212,7 @@
     <Compile Include="Models\GenericTests\CharacterGenerator.cs" />
     <Compile Include="Models\GenericTests\NumberGenerator.cs" />
     <Compile Include="Models\GenericTests\IRandomGenerator.cs" />
+    <Compile Include="Models\GenericTests\OneObjectGenerate.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProblemsViewModel.cs" />

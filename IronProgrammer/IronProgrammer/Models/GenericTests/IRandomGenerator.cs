@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace IronProgrammer.Models.GenericTests
 {
     // 
-    interface IRandomGenerator<T>
+    public interface IRandomGenerator<T>
     {
-        T Generate(T start, T end);
+        T Generate(T from, T to);
     }
 }
