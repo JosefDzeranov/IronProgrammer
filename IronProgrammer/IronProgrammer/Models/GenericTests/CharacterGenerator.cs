@@ -5,14 +5,12 @@ using System.Web;
 
 namespace IronProgrammer.Models.GenericTests
 {
-    public class NumberGenerate : IGeneratable<Int32>
+    public class CharacterGenerator : IRandomGenerator<Char>
     {
-        public Int32 Generate(Int32 start, Int32 end)
+        public char Generate(char start, char end)
         {
             Random random = new Random();
-            
-            return random.Next(start, end + 1);
-
+            return Convert.ToChar(random.Next(start, end + 1));
         }
     }
 }

@@ -209,9 +209,9 @@
     <Compile Include="Models\EF\Topic.cs" />
     <Compile Include="Models\EF\TypeProblem.cs" />
     <Compile Include="Models\EF\UserProfile.cs" />
-    <Compile Include="Models\GenericTests\CharacterGenerate.cs" />
-    <Compile Include="Models\GenericTests\NumberGenerate.cs" />
-    <Compile Include="Models\GenericTests\IGeneratable.cs" />
+    <Compile Include="Models\GenericTests\CharacterGenerator.cs" />
+    <Compile Include="Models\GenericTests\NumberGenerator.cs" />
+    <Compile Include="Models\GenericTests\IRandomGenerator.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProblemsViewModel.cs" />
