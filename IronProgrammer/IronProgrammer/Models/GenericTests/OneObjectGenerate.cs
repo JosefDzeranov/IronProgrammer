@@ -5,7 +5,7 @@ using System.Web;
 
 namespace IronProgrammer.Models.GenericTests
 {
-    public class OneObjectGenerate<T> where T : struct
+    public class OneObjectGenerate<T> :ICreateTester
     {
 
         private IRandomGenerator<T> _generator;

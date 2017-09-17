@@ -6,17 +6,20 @@ using System.Web;
 
 namespace IronProgrammer.Models.GenericTests
 {
-    public class TwoObjectOnLine<T>
+    public class TwoObjectOnLine<T,U>:ICreateTester
     {
-        private IRandomGenerator<T> _generator;
-        public TwoObjectOnLine(IRandomGenerator<T> generator)
+        private IRandomGenerator<T> _generatorFirstObject;
+        private IRandomGenerator<U> _generatorSecondObject;
+
+        public TwoObjectOnLine(IRandomGenerator<T> generatorFirstObject, IRandomGenerator<U> generatorSecondObject)
         {
-            _generator = generator;
+            _generatorFirstObject = generatorFirstObject;
+            _generatorSecondObject = generatorSecondObject;
         }
         public string GetTest()
         {
-            return _generator.Generate() + " " +
-                _generator.Generate().ToString();
+            return _generatorFirstObject.Generate() + " " +
+                _generatorSecondObject.Generate().ToString();
         }
     }
 }

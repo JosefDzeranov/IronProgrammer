@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
 
 namespace IronProgrammer.Models.GenericTests
 {
-    public class OneNumberAndMoreObjectsOnEchLine<TObject>
+    public class OneNumberAndMoreObjectsOnEchLine<TObject>:ICreateTester
     {
         private IRandomGenerator<Int32> _firstLineGenerator;
         private IRandomGenerator<TObject> _linesGenerator;
-
-
-        public OneNumberAndMoreObjectsOnEchLine(IRandomGenerator<Int32> firstGenerator,
-                                                            IRandomGenerator<TObject> secondGenerator)
+        public OneNumberAndMoreObjectsOnEchLine(IRandomGenerator<Int32> firstGenerator,IRandomGenerator<TObject> secondGenerator)
         {
             _firstLineGenerator = firstGenerator;
             _linesGenerator = secondGenerator;

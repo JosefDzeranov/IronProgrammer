@@ -213,6 +213,7 @@
     <Compile Include="Models\EF\TypeProblem.cs" />
     <Compile Include="Models\EF\UserProfile.cs" />
     <Compile Include="Models\GenericTests\CharacterGenerator.cs" />
+    <Compile Include="Models\GenericTests\ICreateTester.cs" />
     <Compile Include="Models\GenericTests\NumberGenerator.cs" />
     <Compile Include="Models\GenericTests\IRandomGenerator.cs" />
     <Compile Include="Models\GenericTests\OneNumberAndMoreObjectsOnEchLine.cs" />
