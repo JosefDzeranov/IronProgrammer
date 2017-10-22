@@ -47,6 +47,7 @@
     <Compile Include="Repositories\ProblemRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\TopicRepository.cs" />
+    <Compile Include="Repositories\TypeProblemRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
