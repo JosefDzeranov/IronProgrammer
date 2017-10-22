@@ -4,9 +4,10 @@ using System.Data.Entity;
 using System.Linq;
 using IronProgrammer.Domain.Core.EF;
 using IronProgrammer.Domain.Interfaces;
+
 namespace IronProgrammer.Infrastructure.Data
 {
-    public class ProblemRepository : IRepository<Problem>
+    public class ProblemRepository : IProblemRepository
     {
         private readonly ProblemContext _db;
 

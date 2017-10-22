@@ -34,8 +34,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackBoxSolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TracingSolverProblem.cs" />
+    <Compile Include="TracingSolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IronProgrammer.Domain.Core\IronProgrammer.Domain.Core.csproj">

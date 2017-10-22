@@ -3,7 +3,7 @@ using IronProgrammer.Services.Interfaces;
 
 namespace IronProgrammer.Infrastructure.Business
 {
-    public class TracingSolverProblem : ISolverProblem
+    public class BlackBoxSolver : ISolverProblem
     {
         public void BuildTask(Problem problem)
         {
