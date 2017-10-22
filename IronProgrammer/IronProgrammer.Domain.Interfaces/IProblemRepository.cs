@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using IronProgrammer.Domain.Core.EF;
 
 namespace IronProgrammer.Domain.Interfaces
@@ -10,6 +11,6 @@ namespace IronProgrammer.Domain.Interfaces
         void Create(Problem item);
         void Update(Problem item);
         void Delete(int id);
-        void Save();
+        IEnumerable<Problem> Find(Func<Problem, Boolean> predicate);
     }
 }

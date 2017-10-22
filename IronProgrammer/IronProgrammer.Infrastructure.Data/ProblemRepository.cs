@@ -11,9 +11,9 @@ namespace IronProgrammer.Infrastructure.Data
     {
         private readonly ProblemContext _db;
 
-        public ProblemRepository()
+        public ProblemRepository(ProblemContext db)
         {
-            _db = new ProblemContext();
+            _db = db;
         }
 
         public IEnumerable<Problem> GetItemList()
@@ -45,29 +45,9 @@ namespace IronProgrammer.Infrastructure.Data
             }
         }
 
-        public void Save()
+        public IEnumerable<Problem> Find(Func<Problem, bool> predicate)
         {
-            _db.SaveChanges();
-        }
-
-        private bool _disposed = false;
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (!this._disposed)
-            {
-                if (disposing)
-                {
-                    _db.Dispose();
-                }
-            }
-            this._disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            return _db.Problems.Where(predicate).ToList();
         }
     }
 }
