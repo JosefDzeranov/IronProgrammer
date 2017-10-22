@@ -8,7 +8,7 @@ namespace IronProgrammer.Infrastructure.Data
 {
     public class ProblemRepository : IRepository<Problem>
     {
-        private ProblemContext _db;
+        private readonly ProblemContext _db;
 
         public ProblemRepository()
         {
