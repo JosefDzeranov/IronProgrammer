@@ -204,14 +204,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\EF\CodeLine.cs" />
-    <Compile Include="Models\EF\Complexity.cs" />
-    <Compile Include="Models\EF\Problem.cs" />
-    <Compile Include="Models\EF\ProblemAttribute.cs" />
-    <Compile Include="Models\EF\ProblemContext.cs" />
-    <Compile Include="Models\EF\Topic.cs" />
-    <Compile Include="Models\EF\TypeProblem.cs" />
-    <Compile Include="Models\EF\UserProfile.cs" />
     <Compile Include="Models\GenericTests\CharacterGenerator.cs" />
     <Compile Include="Models\GenericTests\ICreateTester.cs" />
     <Compile Include="Models\GenericTests\NumberGenerator.cs" />

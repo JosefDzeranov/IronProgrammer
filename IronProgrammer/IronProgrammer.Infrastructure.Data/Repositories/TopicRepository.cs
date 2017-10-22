@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using IronProgrammer.Domain.Core.EF;
 using IronProgrammer.Domain.Interfaces;
@@ -22,27 +23,31 @@ namespace IronProgrammer.Infrastructure.Data.Repositories
 
         public Topic GetItem(int id)
         {
-            throw new NotImplementedException();
+            return _db.Topics.Find(id);
         }
 
         public void Create(Topic item)
         {
-            throw new NotImplementedException();
+            _db.Topics.Add(item);
         }
 
         public void Update(Topic item)
         {
-            throw new NotImplementedException();
+            _db.Entry(item).State = EntityState.Modified;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var topic = _db.Topics.Find(id);
+            if (topic != null)
+            {
+                _db.Topics.Remove(topic);
+            }
         }
 
         public IEnumerable<Topic> Find(Func<Topic, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _db.Topics.Where(predicate).ToList();
         }
     }
 }
