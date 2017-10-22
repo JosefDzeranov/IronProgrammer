@@ -21,7 +21,7 @@ namespace IronProgrammer.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("IronProgrammer", throwIfV1Schema: false)
         {
         }
 
