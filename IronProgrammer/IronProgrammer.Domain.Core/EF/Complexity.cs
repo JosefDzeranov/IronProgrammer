@@ -1,18 +1,27 @@
 ﻿using System.Collections.Generic;
-using IronProgrammer.Models.EF;
 
 namespace IronProgrammer.Domain.Core.EF
 {
+    /// <summary>
+    /// Сложность задачи
+    /// </summary>
     public class Complexity
     {
         public int Id { get; set; }
+
+        /// <summary>
+        /// Название уровня сложности
+        /// </summary>
         public string Name { get; set; }
 
-        public virtual ICollection<Problem> OriginalTasks { get; set; }
+        /// <summary>
+        /// К каким задачам относится
+        /// </summary>
+        public virtual ICollection<Problem> Problems { get; set; }
 
         public Complexity()
         {
-            OriginalTasks = new List<Problem>();
+            Problems = new List<Problem>();
         }
     }
 }

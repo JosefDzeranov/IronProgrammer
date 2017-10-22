@@ -130,7 +130,7 @@ namespace IronProgrammer.Models.EF
             //    codeline.Content = item;
             //    //t.Codelines.Add(codeline);
             //}
-            //context.OriginalTasks.Add(t);
+            //context.Problems.Add(t);
             //context.SaveChanges();
 
             base.Seed(context);

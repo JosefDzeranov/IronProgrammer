@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using IronProgrammer.Domain.Core.EF;
-using IronProgrammer.Models.EF;
 
 namespace IronProgrammer.Infrastructure.Data.EF
 {
@@ -17,19 +16,11 @@ namespace IronProgrammer.Infrastructure.Data.EF
 
         public DbSet<Problem> Problems { get; set; }
 
-        public DbSet<ProblemAttribute> ProblemAttributes { get; set; }
-
     }
     public class AppDbInitializer : DropCreateDatabaseIfModelChanges<DatabaseContext>
     {
         protected override void Seed(DatabaseContext context)
         {
-            TypeProblem temp = new TypeProblem() { Name = EnumTypeProblems.OneAnswer.ToString(), };
-            context.TypeProblems.Add(temp);
-
-            temp = new TypeProblem() { Name = EnumTypeProblems.MoreAnswer.ToString() };
-            context.TypeProblems.Add(temp);
-
 
             Complexity complexity = new Complexity() { Name = "Легкий" };
             context.Complexities.Add(complexity);

@@ -42,12 +42,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\CodeLine.cs" />
     <Compile Include="EF\Complexity.cs" />
-    <Compile Include="EF\EnumTypeProblems.cs" />
     <Compile Include="EF\Problem.cs" />
-    <Compile Include="EF\ProblemAttribute.cs" />
-    <Compile Include="EF\ProblemContext.cs" />
     <Compile Include="EF\Topic.cs" />
     <Compile Include="EF\TypeProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
