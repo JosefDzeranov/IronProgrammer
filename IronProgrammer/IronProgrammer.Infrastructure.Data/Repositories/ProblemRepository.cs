@@ -4,14 +4,15 @@ using System.Data.Entity;
 using System.Linq;
 using IronProgrammer.Domain.Core.EF;
 using IronProgrammer.Domain.Interfaces;
+using IronProgrammer.Infrastructure.Data.EF;
 
-namespace IronProgrammer.Infrastructure.Data
+namespace IronProgrammer.Infrastructure.Data.Repositories
 {
-    public class ProblemRepository : IProblemRepository<Problem>
+    public class ProblemRepository : IRepository<Problem>
     {
-        private readonly ProblemContext _db;
+        private readonly DatabaseContext _db;
 
-        public ProblemRepository(ProblemContext db)
+        public ProblemRepository(DatabaseContext db)
         {
             _db = db;
         }

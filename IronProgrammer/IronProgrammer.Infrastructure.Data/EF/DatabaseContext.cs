@@ -2,11 +2,11 @@
 using IronProgrammer.Domain.Core.EF;
 using IronProgrammer.Models.EF;
 
-namespace IronProgrammer.Infrastructure.Data
+namespace IronProgrammer.Infrastructure.Data.EF
 {
-    public sealed class ProblemContext : DbContext
+    public sealed class DatabaseContext : DbContext
     {
-        public ProblemContext() : base("IronProgrammer") { }
+        public DatabaseContext() : base("IronProgrammer") { }
 
         public DbSet<TypeProblem> TypeProblems { get; set; }
 
@@ -20,9 +20,9 @@ namespace IronProgrammer.Infrastructure.Data
         public DbSet<ProblemAttribute> ProblemAttributes { get; set; }
 
     }
-    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<ProblemContext>
+    public class AppDbInitializer : DropCreateDatabaseIfModelChanges<DatabaseContext>
     {
-        protected override void Seed(ProblemContext context)
+        protected override void Seed(DatabaseContext context)
         {
             TypeProblem temp = new TypeProblem() { Name = EnumTypeProblems.OneAnswer.ToString(), };
             context.TypeProblems.Add(temp);

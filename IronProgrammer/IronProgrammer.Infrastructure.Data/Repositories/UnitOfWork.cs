@@ -1,11 +1,15 @@
 ﻿using System;
+using IronProgrammer.Infrastructure.Data.EF;
 
-namespace IronProgrammer.Infrastructure.Data
+namespace IronProgrammer.Infrastructure.Data.Repositories
 {
     public class UnitOfWork
     {
-        private ProblemContext _db = new ProblemContext();
+        private DatabaseContext _db = new DatabaseContext();
         private ProblemRepository _problemRepository;
+        private TopicRepository _topicRepository;
+
+        private bool _disposed = false;
 
         public ProblemRepository Problems
         {
@@ -18,12 +22,23 @@ namespace IronProgrammer.Infrastructure.Data
                 return _problemRepository;
             }
         }
+
+        public TopicRepository Topics
+        {
+            get
+            {
+                if (_topicRepository == null)
+                {
+                    _topicRepository = new TopicRepository(_db);
+                }
+                return _topicRepository;
+            }
+        }
+
         public void Save()
         {
             _db.SaveChanges();
         }
-
-        private bool _disposed = false;
 
         public virtual void Dispose(bool disposing)
         {

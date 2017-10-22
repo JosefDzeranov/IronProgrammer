@@ -4,7 +4,7 @@ using IronProgrammer.Domain.Core.EF;
 
 namespace IronProgrammer.Domain.Interfaces
 {
-    public interface IProblemRepository<T>
+    public interface IRepository<T>
     {
         IEnumerable<T> GetItemList();
         T GetItem(int id);

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using IronProgrammer.Domain.Interfaces;
 using IronProgrammer.Infrastructure.Business;
 using IronProgrammer.Infrastructure.Data;
+using IronProgrammer.Infrastructure.Data.Repositories;
 using IronProgrammer.Services.Interfaces;
 using Ninject;
 
@@ -27,7 +28,7 @@ namespace IronProgrammer.Util
         }
         private void AddBindings()
         {
-            _kernel.Bind(typeof(IProblemRepository<>)).To(typeof(ProblemRepository));
+            _kernel.Bind(typeof(IRepository<>)).To(typeof(ProblemRepository));
             _kernel.Bind<ISolverProblem>().To<TracingSolver>();
         }
     }
