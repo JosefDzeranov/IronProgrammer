@@ -7,7 +7,7 @@ using IronProgrammer.Domain.Interfaces;
 
 namespace IronProgrammer.Infrastructure.Data
 {
-    public class ProblemRepository : IProblemRepository
+    public class ProblemRepository : IProblemRepository<Problem>
     {
         private readonly ProblemContext _db;
 

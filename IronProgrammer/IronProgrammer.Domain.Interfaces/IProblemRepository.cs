@@ -4,13 +4,13 @@ using IronProgrammer.Domain.Core.EF;
 
 namespace IronProgrammer.Domain.Interfaces
 {
-    public interface IProblemRepository
+    public interface IProblemRepository<T>
     {
-        IEnumerable<Problem> GetItemList();
-        Problem GetItem(int id);
-        void Create(Problem item);
-        void Update(Problem item);
+        IEnumerable<T> GetItemList();
+        T GetItem(int id);
+        void Create(T item);
+        void Update(T item);
         void Delete(int id);
-        IEnumerable<Problem> Find(Func<Problem, Boolean> predicate);
+        IEnumerable<T> Find(Func<T, Boolean> predicate);
     }
 }

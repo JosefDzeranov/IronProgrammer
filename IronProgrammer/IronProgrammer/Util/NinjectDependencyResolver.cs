@@ -27,7 +27,7 @@ namespace IronProgrammer.Util
         }
         private void AddBindings()
         {
-            _kernel.Bind<IProblemRepository>().To<ProblemRepository>();
+            _kernel.Bind(typeof(IProblemRepository<>)).To(typeof(ProblemRepository));
             _kernel.Bind<ISolverProblem>().To<TracingSolver>();
         }
     }
