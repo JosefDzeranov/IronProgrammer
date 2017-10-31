@@ -34,6 +34,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICreateTester.cs" />
+    <Compile Include="IRandomCreatingTest.cs" />
+    <Compile Include="IRandomGenerator.cs" />
     <Compile Include="ISolverProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

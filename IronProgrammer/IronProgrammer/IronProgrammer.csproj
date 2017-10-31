@@ -198,20 +198,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="GenericTests\IRandomCreatingTest.cs" />
-    <Compile Include="GenericTests\RandomCreatingTestInt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\GenericTests\CharacterGenerator.cs" />
-    <Compile Include="Models\GenericTests\ICreateTester.cs" />
-    <Compile Include="Models\GenericTests\NumberGenerator.cs" />
-    <Compile Include="Models\GenericTests\IRandomGenerator.cs" />
-    <Compile Include="Models\GenericTests\OneNumberAndMoreObjectsOnEchLine.cs" />
-    <Compile Include="Models\GenericTests\OneObjectGenerate.cs" />
-    <Compile Include="Models\GenericTests\OneNumberInLineAndMoreObjectsInSecondLine.cs" />
-    <Compile Include="Models\GenericTests\TwoObjectOnLine.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProblemsViewModel.cs" />

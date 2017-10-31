@@ -1,6 +1,6 @@
 ﻿namespace IronProgrammer.Services.Interfaces
 {
-     interface ICreateTester
+    public interface ICreateTester
     {
          string GetTest();
     }
