@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using IronProgrammer.Services.Interfaces;
 
-namespace IronProgrammer.Models.GenericTests
+namespace GenericTests.GenericTests
 {
     public class CharacterGenerator : IRandomGenerator<Char>
     {

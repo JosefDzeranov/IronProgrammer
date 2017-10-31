@@ -9,10 +9,10 @@ namespace IronProgrammer.Controllers
             return View();
         }
 
-        public ViewResult Problems()
-        {
-            return View();
-        }
+        //public ViewResult Problems()
+        //{
+        //    return View("");
+        //}
 
 
 

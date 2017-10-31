@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text;
+using IronProgrammer.Services.Interfaces;
 
-namespace IronProgrammer.Models.GenericTests
+namespace GenericTests.GenericTests
 {
     public class OneNumberAndMoreObjectsOnEchLine<TObject>:ICreateTester
     {
