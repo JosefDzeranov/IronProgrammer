@@ -1,0 +1,11 @@
+﻿@model dynamic
+
+
+<div style="width: 100px; height: 100px">
+
+    @using (Html.BeginForm("CodeWrite", "Home", FormMethod.Post))
+    {
+        <textarea name="Code"></textarea>
+        <input type="submit" value="Отправить" />
+    }
+</div>
