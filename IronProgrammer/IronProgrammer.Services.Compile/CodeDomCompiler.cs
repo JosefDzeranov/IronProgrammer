@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Reflection;
 using IronProgrammer.Services.Interfaces;
 using Microsoft.CSharp;
@@ -21,13 +22,13 @@ namespace IronProgrammer.Services.Compile
         /// <summary>
         /// Compiles the specified code the sepcified assembly locations.
         /// </summary>
-        /// <param name="code">The code.</param>
+        /// <param name="source">The source.</param>
         /// <param name="exeName">Name executable file.</param>
         /// <param name="assemblyLocations">The assembly locations.</param>
         /// <returns>
         /// The assembly.
         /// </returns>
-        public Assembly Compile(string code, string exeName, params string[] assemblyLocations)
+        public bool Compile(string source, string exeName, List<string> assemblyLocations)
         {
             var parameters = new CompilerParameters
             {
@@ -41,21 +42,13 @@ namespace IronProgrammer.Services.Compile
                 parameters.ReferencedAssemblies.Add(assemblyLocation);
             }
 
-            var result = _compiler.CompileAssemblyFromSource(parameters, code);
+            var result = _compiler.CompileAssemblyFromSource(parameters, source);
 
             if (result.Errors.Count > 0)
             {
                 throw new CodeDomCompilerException("Assembly could not be created.", result);
             }
-
-            try
-            {
-                return result.CompiledAssembly;
-            }
-            catch (Exception ex)
-            {
-                throw new CodeDomCompilerException("Assembly could not be created.", result, ex);
-            }
+            return true;
         }
 
         /// <inheritdoc />

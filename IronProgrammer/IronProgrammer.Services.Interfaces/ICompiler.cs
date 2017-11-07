@@ -1,10 +1,10 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
 
 namespace IronProgrammer.Services.Interfaces
 {
     public interface ICompiler
     {
         /// Compiles the specified code the sepcified assembly locations.
-        Assembly Compile(string code, string exeName, params string[] assemblyLocations);
+        bool Compile(string source, string exeName, List<string> assemblyLocations);
     }
 }

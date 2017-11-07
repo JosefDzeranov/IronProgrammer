@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Web.Mvc;
 using IronProgrammer.Services.Interfaces;
 using IronProgrammer.Services.Compile;
@@ -23,7 +24,7 @@ namespace IronProgrammer.Controllers
         [HttpPost]
         public ActionResult CodeWrite(string code)
         {
-            var a = _compiler.Compile(code, "Josef.exe", "mscorlib.dll","System.Core.dll");
+            var a = _compiler.Compile(code, "Test.exe", new List<string>() { "mscorlib", "System", "System.Core" });
             Process.Start("D:\\Compilers\\Josef.exe");
             return View();
         }

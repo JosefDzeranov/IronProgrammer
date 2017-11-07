@@ -1,9 +1,14 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using IronProgrammer.Services.Interfaces;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Emit;
+using Microsoft.CodeAnalysis.Text;
 
 namespace IronProgrammer.Services.Compile
 {
@@ -12,55 +17,83 @@ namespace IronProgrammer.Services.Compile
     /// </summary>
     public class RoslynCompiler : ICompiler
     {
-        private const string path = @"D:\\Compilers";
 
+        private readonly string _path = @"D:\Compilers\";
+
+        private static readonly IEnumerable<string> _defaultNamespaces =
+            new[]
+            {
+                "System",
+                "System.IO",
+                "System.Net",
+                "System.Linq",
+                "System.Text",
+                "System.Text.RegularExpressions",
+                "System.Collections.Generic"
+            };
+        private readonly List<string> _defaultAssemblies = new List<string>()
+        {
+            "mscorlib",
+            "System",
+            "System.Core"
+        };
+
+
+
+        private readonly string _runtimePath =
+            @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\{0}.dll";
 
         /// <summary>
         /// Gets the compilation options.
         /// </summary>
-        /// <value>
-        /// The options.
-        /// </value>
-        public CSharpCompilationOptions Options { get; } = new CSharpCompilationOptions(
-            OutputKind.ConsoleApplication,
-            reportSuppressedDiagnostics: true,
-            optimizationLevel: OptimizationLevel.Release,
-            generalDiagnosticOption: ReportDiagnostic.Error
-        );
+        private static readonly CSharpCompilationOptions Options = new CSharpCompilationOptions(
+                 OutputKind.ConsoleApplication)
+             .WithOverflowChecks(true)
+             .WithOptimizationLevel(OptimizationLevel.Release)
+             .WithUsings(_defaultNamespaces);
+
 
         /// <summary>
         /// Compiles the specified code the sepcified assembly locations.
         /// </summary>
-        /// <param name="code">The code.</param>
-        /// </returns>
-        /// <param name="assemblyLocations">The assembly locations.</param>
-        /// <returns>
+        /// <param name="source">The code.</param>
+        /// <param name="exeName">Assemply name</param>
+        ///  <param name="assemblyLocations">The assembly locations.</param>
+        /// <returns/>
         /// The assembly.
         /// <exception cref="RoslynCompilationException">Assembly could not be created.</exception>
-        public Assembly Compile(string code, string exeName, params string[] assemblyLocations)
+        public bool Compile(string source, string exeName, List<string> assemblyLocations)
         {
-            string netAssembliesDirectory = Path.GetDirectoryName(typeof(object).Assembly.Location);
-            var references = assemblyLocations.Select(l => MetadataReference.CreateFromFile(netAssembliesDirectory + "\\" + l));
+            assemblyLocations.AddRange(_defaultAssemblies);
+            var references = assemblyLocations.Select(l => MetadataReference.CreateFromFile(string.Format(_runtimePath, l)));
 
-            var compilation = CSharpCompilation.Create(
-                exeName,
-                references: references,
-                syntaxTrees: new SyntaxTree[] { CSharpSyntaxTree.ParseText(code) },
-                options: this.Options
-            );
+            var parsedSyntaxTree = Parse(source, "", CSharpParseOptions.Default.WithLanguageVersion(LanguageVersion.CSharp6));
 
-            using (var ms = new MemoryStream())
+            var compilation = CSharpCompilation.Create(exeName, new SyntaxTree[] { parsedSyntaxTree }, references, Options);
+            EmitResult result = null;
+            try
             {
-                var compilationResult = compilation.Emit(ms);
-
-                if (compilationResult.Success)
-                {
-                    ms.Seek(0, SeekOrigin.Begin);
-                    return Assembly.Load(ms.ToArray());
-                }
-
-                throw new RoslynCompilationException("Assembly could not be created.", compilationResult);
+                result = compilation.Emit(_path + exeName);
+                //if (!result.Success)
+                //{
+                //    List<string> ass = new List<string>();
+                //    foreach (var diagnostic in result.Diagnostics)
+                //    {
+                //        ass.Add(diagnostic.ToString());
+                //    }
+                //}
+                return result.Success;
             }
+            catch (Exception)
+            {
+                throw new RoslynCompilationException("Assembly could not be created.", result);
+            }
+        }
+
+        private static SyntaxTree Parse(string text, string filename = "", CSharpParseOptions options = null)
+        {
+            var stringText = SourceText.From(text, Encoding.UTF8);
+            return SyntaxFactory.ParseSyntaxTree(stringText, options, filename);
         }
     }
 }
