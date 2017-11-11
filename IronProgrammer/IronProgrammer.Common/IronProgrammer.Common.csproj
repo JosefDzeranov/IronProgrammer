@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4BEA6053-BF38-41D1-A3D2-3EF9A26F1330}</ProjectGuid>
+    <ProjectGuid>{10F68CF0-D02A-4F19-99CE-204E9A4794F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IronProgrammer.Infrastructure.Business</RootNamespace>
-    <AssemblyName>IronProgrammer.Infrastructure.Business</AssemblyName>
+    <RootNamespace>IronProgrammer.Common</RootNamespace>
+    <AssemblyName>IronProgrammer.Common</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,19 +34,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlackBoxSolver.cs" />
+    <Compile Include="CompileResult.cs" />
+    <Compile Include="Error.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TracingSolver.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IronProgrammer.Domain.Core\IronProgrammer.Domain.Core.csproj">
-      <Project>{7c2f8253-732e-4368-9a06-ebf8f7194986}</Project>
-      <Name>IronProgrammer.Domain.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IronProgrammer.Services.Interfaces\IronProgrammer.Services.Interfaces.csproj">
-      <Project>{6e0889a5-6fd7-47aa-a5de-c0b7bb4ad32c}</Project>
-      <Name>IronProgrammer.Services.Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

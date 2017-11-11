@@ -1,7 +1,7 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 
-namespace IronProgrammer.Services.Compile
+namespace IronProgrammer.Services.Compile.CodeDom
 {
     public class CodeDomCompilerException : Exception
     {

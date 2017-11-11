@@ -296,6 +296,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\CodeWrite.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,6 +311,10 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IronProgrammer.Common\IronProgrammer.Common.csproj">
+      <Project>{10F68CF0-D02A-4F19-99CE-204E9A4794F5}</Project>
+      <Name>IronProgrammer.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IronProgrammer.Domain.Core\IronProgrammer.Domain.Core.csproj">
       <Project>{7c2f8253-732e-4368-9a06-ebf8f7194986}</Project>
       <Name>IronProgrammer.Domain.Core</Name>

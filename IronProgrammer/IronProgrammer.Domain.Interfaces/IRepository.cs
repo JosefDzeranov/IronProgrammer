@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using IronProgrammer.Domain.Core.EF;
 
 namespace IronProgrammer.Domain.Interfaces
 {

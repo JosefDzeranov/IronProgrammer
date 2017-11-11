@@ -1,12 +1,12 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Reflection;
+using IronProgrammer.Common;
+using IronProgrammer.Services.Compile.Roslyn;
 using IronProgrammer.Services.Interfaces;
 using Microsoft.CSharp;
 
-
-namespace IronProgrammer.Services.Compile
+namespace IronProgrammer.Services.Compile.CodeDom
 {
     /// <inheritdoc cref="" />
     /// <summary>
@@ -17,7 +17,6 @@ namespace IronProgrammer.Services.Compile
     public class CodeDomCompiler : ICompiler, IDisposable
     {
         private readonly CSharpCodeProvider _compiler = new CSharpCodeProvider();
-        private const string Path = "D:\\Compilers\\";
 
         /// <summary>
         /// Compiles the specified code the sepcified assembly locations.
@@ -28,7 +27,7 @@ namespace IronProgrammer.Services.Compile
         /// <returns>
         /// The assembly.
         /// </returns>
-        public bool Compile(string source, string exeName, List<string> assemblyLocations)
+        public CompileResult Compile(string source, string exeName, List<string> assemblyLocations)
         {
             var parameters = new CompilerParameters
             {
@@ -36,7 +35,7 @@ namespace IronProgrammer.Services.Compile
                 GenerateInMemory = true
             };
 
-            parameters.OutputAssembly = Path + exeName;
+            parameters.OutputAssembly = DefaultValues.CompilePath + exeName;
             foreach (string assemblyLocation in assemblyLocations)
             {
                 parameters.ReferencedAssemblies.Add(assemblyLocation);
@@ -46,9 +45,9 @@ namespace IronProgrammer.Services.Compile
 
             if (result.Errors.Count > 0)
             {
-                throw new CodeDomCompilerException("Assembly could not be created.", result);
+                return new CompileResult() { Success = false };
             }
-            return true;
+            return new CompileResult() { Success = true };
         }
 
         /// <inheritdoc />

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.CodeAnalysis.Emit;
 
-namespace IronProgrammer.Services.Compile
+namespace IronProgrammer.Services.Compile.Roslyn
 {
     /// <summary>
     /// Object that stores the compilation exception for the Roslyn compiler.
