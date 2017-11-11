@@ -7,18 +7,18 @@ using IronProgrammer.Services.Compile.Helpers;
 using IronProgrammer.Services.Interfaces;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.Emit;
 using Microsoft.CodeAnalysis.Text;
 
 namespace IronProgrammer.Services.Compile.Roslyn
 {
+    /// <inheritdoc />
     /// <summary>
-    /// Compiler that uses the Roslyn compiler (<see cref="CSharpCompilation" />).
+    /// Компилятор, который использует компилятор Roslyn. (<see cref="T:Microsoft.CodeAnalysis.CSharp.CSharpCompilation" />).
     /// </summary>
     public class RoslynCompiler : ICompiler
     {
         /// <summary>
-        /// Gets the compilation options.
+        /// Получает параметры компиляции.
         /// </summary>
         private static readonly CSharpCompilationOptions Options = new CSharpCompilationOptions(
                  OutputKind.ConsoleApplication)
@@ -28,13 +28,13 @@ namespace IronProgrammer.Services.Compile.Roslyn
 
         /// <inheritdoc />
         /// <summary>
-        /// Compiles the specified code the sepcified assembly locations.
+        /// Компилирует указанный код в указанные места сборки.
         /// </summary>
-        /// <param name="source">The code.</param>
-        /// <param name="exeName">Assemply name</param>
-        ///  <param name="assemblyLocations">The assembly locations.</param>
+        /// <param name="source">Исходный код</param>
+        /// <param name="exeName">Имя полученного исполняемого файла</param>
+        ///  <param name="assemblyLocations">Расположение сборок, которые нужны при компиляции исходного кода</param>
         /// <returns />
-        /// The assembly.
+        /// Результат компиляции
         /// <exception cref="T:IronProgrammer.Services.Compile.Roslyn.RoslynCompilationException">Assembly could not be created.</exception>
         public CompileResult Compile(string source, string exeName, List<string> assemblyLocations)
         {
@@ -54,6 +54,13 @@ namespace IronProgrammer.Services.Compile.Roslyn
             }
         }
 
+        /// <summary>
+        /// Строит синтаксическое дерево.
+        /// </summary>
+        /// <param name="text">Исходный код</param>
+        /// <param name="filename">Имя файла</param>
+        /// <param name="options">Дополнительный опции</param>
+        /// <returns>Синтакическое дерево</returns>
         private static SyntaxTree Parse(string text, string filename = "", CSharpParseOptions options = null)
         {
             var stringText = SourceText.From(text, Encoding.UTF8);
