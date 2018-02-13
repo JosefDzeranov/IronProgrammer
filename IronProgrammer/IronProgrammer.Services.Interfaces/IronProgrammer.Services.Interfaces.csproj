@@ -41,12 +41,6 @@
     <Compile Include="ISolverProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IronProgrammer.Domain.Core\IronProgrammer.Domain.Core.csproj">
-      <Project>{7c2f8253-732e-4368-9a06-ebf8f7194986}</Project>
-      <Name>IronProgrammer.Domain.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
