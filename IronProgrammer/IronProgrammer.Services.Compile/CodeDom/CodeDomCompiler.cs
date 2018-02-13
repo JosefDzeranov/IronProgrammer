@@ -1,11 +1,12 @@
 ﻿using System;
 using System.CodeDom.Compiler;
-using System.Reflection;
+using System.Collections.Generic;
+using IronProgrammer.Common;
+using IronProgrammer.Services.Compile.Roslyn;
 using IronProgrammer.Services.Interfaces;
 using Microsoft.CSharp;
 
-
-namespace IronProgrammer.Services.Compile
+namespace IronProgrammer.Services.Compile.CodeDom
 {
     /// <inheritdoc cref="" />
     /// <summary>
@@ -16,18 +17,17 @@ namespace IronProgrammer.Services.Compile
     public class CodeDomCompiler : ICompiler, IDisposable
     {
         private readonly CSharpCodeProvider _compiler = new CSharpCodeProvider();
-        private const string Path = "D:\\Compilers\\";
 
         /// <summary>
         /// Compiles the specified code the sepcified assembly locations.
         /// </summary>
-        /// <param name="code">The code.</param>
+        /// <param name="source">The source.</param>
         /// <param name="exeName">Name executable file.</param>
         /// <param name="assemblyLocations">The assembly locations.</param>
         /// <returns>
         /// The assembly.
         /// </returns>
-        public Assembly Compile(string code, string exeName, params string[] assemblyLocations)
+        public CompileResult Compile(string source, string exeName, List<string> assemblyLocations)
         {
             var parameters = new CompilerParameters
             {
@@ -35,27 +35,19 @@ namespace IronProgrammer.Services.Compile
                 GenerateInMemory = true
             };
 
-            parameters.OutputAssembly = Path + exeName;
+            parameters.OutputAssembly = DefaultValues.CompilePath + exeName;
             foreach (string assemblyLocation in assemblyLocations)
             {
                 parameters.ReferencedAssemblies.Add(assemblyLocation);
             }
 
-            var result = _compiler.CompileAssemblyFromSource(parameters, code);
+            var result = _compiler.CompileAssemblyFromSource(parameters, source);
 
             if (result.Errors.Count > 0)
             {
-                throw new CodeDomCompilerException("Assembly could not be created.", result);
+                return new CompileResult() { Success = false };
             }
-
-            try
-            {
-                return result.CompiledAssembly;
-            }
-            catch (Exception ex)
-            {
-                throw new CodeDomCompilerException("Assembly could not be created.", result, ex);
-            }
+            return new CompileResult() { Success = true };
         }
 
         /// <inheritdoc />

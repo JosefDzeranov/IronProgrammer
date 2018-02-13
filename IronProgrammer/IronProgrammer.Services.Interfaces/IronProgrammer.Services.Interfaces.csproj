@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IronProgrammer.Services.Interfaces</RootNamespace>
     <AssemblyName>IronProgrammer.Services.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,16 @@
     <Compile Include="IRandomGenerator.cs" />
     <Compile Include="ISolverProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IronProgrammer.Common\IronProgrammer.Common.csproj">
+      <Project>{10f68cf0-d02a-4f19-99ce-204e9a4794f5}</Project>
+      <Name>IronProgrammer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IronProgrammer.Domain.Core\IronProgrammer.Domain.Core.csproj">
+      <Project>{7c2f8253-732e-4368-9a06-ebf8f7194986}</Project>
+      <Name>IronProgrammer.Domain.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

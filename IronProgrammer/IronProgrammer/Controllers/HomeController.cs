@@ -1,7 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Web.Mvc;
+using IronProgrammer.Common;
 using IronProgrammer.Services.Interfaces;
 using IronProgrammer.Services.Compile;
+using IronProgrammer.Services.Compile.Roslyn;
 
 namespace IronProgrammer.Controllers
 {
@@ -23,7 +26,12 @@ namespace IronProgrammer.Controllers
         [HttpPost]
         public ActionResult CodeWrite(string code)
         {
-            var a = _compiler.Compile(code, "Josef.exe", "mscorlib.dll","System.Core.dll");
+            var error = _compiler.Compile(code, "Josef.exe", new List<string>() { "mscorlib", "System", "System.Core" });
+            if (!error.Success)
+            {
+                TempData["errors"] = error.Errors;
+                return RedirectToAction("Error");
+            }
             Process.Start("D:\\Compilers\\Josef.exe");
             return View();
         }
@@ -33,6 +41,11 @@ namespace IronProgrammer.Controllers
             return View();
         }
 
+        public ActionResult Error()
+        {
+            var errors = TempData["errors"] as List<Error>;
+            return View(errors);
+        }
 
 
 

@@ -296,6 +296,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\CodeWrite.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,6 +311,18 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IronProgrammer.Common\IronProgrammer.Common.csproj">
+      <Project>{10F68CF0-D02A-4F19-99CE-204E9A4794F5}</Project>
+      <Name>IronProgrammer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IronProgrammer.Domain.Core\IronProgrammer.Domain.Core.csproj">
+      <Project>{7c2f8253-732e-4368-9a06-ebf8f7194986}</Project>
+      <Name>IronProgrammer.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IronProgrammer.Domain.Interfaces\IronProgrammer.Domain.Interfaces.csproj">
+      <Project>{1308142d-c1de-4456-8056-014ddfa5c76e}</Project>
+      <Name>IronProgrammer.Domain.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IronProgrammer.Infrastructure.Business\IronProgrammer.Infrastructure.Business.csproj">
       <Project>{4bea6053-bf38-41d1-a3d2-3ef9a26f1330}</Project>
       <Name>IronProgrammer.Infrastructure.Business</Name>
